@@ -1,0 +1,23 @@
+function demo
+
+close all; clear; clc;
+
+imgpath = 'H:\Research\hairSeg\database\LFW\lfw_funneled';
+flist = dir(imgpath);
+
+for i=1:length(flist)
+    if flist(i).isdir
+        fdname = flist(i).name;
+        jpgfiles = dir([imgpath '\' fdname '\*.jpg']);
+        if ~isempty(jpgfiles)
+            dirs = loaddir([imgpath '\' fdname],'*.jpg');
+            strings = loadstrings('H:\Research\hairSeg\database\LFW\lfw_funneled\categ.txt');
+            segmentation_ui( [imgpath '\' fdname '\' '*.jpg'],...
+                loadstrings('H:\Research\hairSeg\database\LFW\lfw_funneled\categ.txt') );
+        end
+    end
+end
+
+segmentation_ui( loaddir('H:\Research\hairSeg\database\LFW\lfw_funneled\*','*.jpg'),...
+    loadstrings('H:\Research\hairSeg\database\LFW\lfw_funneled\categ.txt') );
+

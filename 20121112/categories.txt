@@ -1,0 +1,164 @@
+Semantic Scene
+ Texture and pattern
+  Graphics, drawings
+  Natural (fur, rocky, vegetation, etc..)
+  Hand-made (brick walls, etc..) 
+ Non texture
+  Graphics
+   Advertisement
+   Cartoon
+   Drawing
+   Painting
+   Other
+ Photograph
+  Natural
+   Landscape
+   Wildlife
+   Countryside
+   Other
+  Man-made
+   City landscape
+   Outdoor Architecture
+   House setting
+   School setting
+   Factory setting
+   Meeting Room
+   Office setting
+   Store setting
+   Theatre
+   Church
+   Museum
+   Transportation setting
+   Other
+  Sport Event
+   Basketball
+   Baseball
+   Hockey
+   Ice Skating
+   Swimming
+   Tennis
+   Football
+   Soccer
+   Skiing
+   Trekking
+   Racing
+   Martial Arts
+   Fishing
+   Sailing
+   Other
+  People Event
+   Meeting
+   Ceremony
+   Party
+   Other
+Segments
+ Outdoors
+  Nature Vegetation
+   Flower
+   Tree
+   Forest/woods
+   Greenery/foliage
+   Fields
+  Nature Non Vegetation
+   Sky
+   Cloud
+   Water Body
+   Snow
+   Beach
+   Cave
+   Desert
+   Land
+   Mountain
+   Rock
+   Waterfall
+   Fire
+   Smoke
+  Man made Scene
+   Bridge
+   Building
+   Cityscape
+   Road
+   Statue
+   Wall
+ Indoors
+  Floor
+  Ceiling
+  Wall
+  Window
+  Corridor
+  Elevator
+  Stairs
+  Cage
+ Outer Space
+Objects 
+ Animals
+  Cat
+  Tiger
+  Lion
+  Dog
+  Cow
+  Horse
+  Sheep
+  Chicken
+  Bear
+  Monkey
+  Bird
+  Frog
+  Butterfly
+  Bug
+  Other
+ Human
+  Face 
+   Female
+   Male
+  Body part
+  Person
+   Citizen
+   Celebrity
+   Politician
+  People
+  Crowd
+ Man Made Object
+  Table
+  Desk
+  Computer
+  Book/ Magazine / Newspaper
+  Chair
+  Furniture
+  Ornament
+  Jewellery
+  Watches
+  Clock
+  Podium
+  Flag
+  Dish/plate/glasses/forks..
+  Clothes/Shoes/Sunglasses/ Accessories
+  Weapons & Sport Equipment
+  Instrument, tool, devices (electronic, electric, hydraulic..)
+  Toys
+  Painting
+  Music/movies
+  Other
+ Food
+  Fruit
+  Vegetable
+  Fish
+  Meat
+  Egg
+  Bread/cookies/cakes
+ Transportation
+  Airplane
+  Motorcycle
+  Bicycle
+  Boat
+  Car
+  Tractor
+  Train
+  Truck
+  Subway
+  Trolley
+  Bus
+ Graphic and Text
+  Text Overlay on a photograph
+  Text and Drawings
+  Graphics and signs

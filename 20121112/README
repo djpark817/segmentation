@@ -1,0 +1,149 @@
+
+semi-automatic image segmentation & annotation
+==============================================
+
+Copyright 2007 AUTHOR: Steffen Gauglitz
+University of California at Santa Barbara, Vision Research Lab
+contact: Prof. Manjunath, manj@ece.ucsb.edu
+
+Modification/redistribution granted only for the purposes
+of teaching, non-commercial research or study.
+
+If you use this application we would appreciate it if you cite:
+Elisa Drelie Gelasca, Joriz De Guzman, Steffen Gauglitz, Pratim Ghosh,
+JieJun Xu, Amir M. Rahimi, Emily Moxley, Zhiqiang Bi, B. S. Manjunath:
+"CORTINA: Searching a 10 Million+ Images Database",
+submitted to the 33rd International Conference on Very Large Data Bases
+(VLDB), September 23-28 2007, University of Vienna, Austria.
+
+
+ OVERVIEW
+ REQUIREMENTS
+ DESCRIPTION
+ INSTALLATION
+ RUNNING THE GUI
+ INPUT SPECIFICATIONS
+ OUTPUT SPECIFICATIONS
+ USER INTERFACE
+
+
+== OVERVIEW ==
+
+This is a set of MATLAB scripts for semi-automatic image segmentation & annotation.
+It uses a segmentation algorithm to preprocess the image and allows
+the user to recombine, refine and create segments and to label them
+out of a set of given categories.
+
+
+== REQUIREMENTS ==
+
+This tool was successfully tested under Linux and MS Windows.
+It requires ImageMagick to convert image formats,
+ please install it from http://www.imagemagick.org
+ and make sure your system can call the 'convert' command.
+
+
+== DESCRIPTION ==
+
+As a preprocessing step, this tool uses the segmentation
+algorithm described in:
+
+ Efficient Graph-Based Image Segmentation
+ Pedro F. Felzenszwalb and Daniel P. Huttenlocher
+ International Journal of Computer Vision, 59(2) September 2004.
+
+A compiled version for Linux and MS Windows is included,
+however, the source code can be obtained online:
+
+http://people.cs.uchicago.edu/~pff/segment/
+
+
+== INSTALLATION ==
+
+First make sure that your OS knows how to find the segmentation
+executable (felzenszwalb or felzenszwalb.exe, respectively)
+by putting it somewhere in the OS's search path.
+
+Now make sure MATLAB can find all of the scripts that are
+included by either making their directory the current directory
+or including it in the MATLAB path.
+
+
+== RUNNING THE GUI ==
+
+Run the GUI by executing the following command in MATLAB:
+
+ segmentation_ui( <your image list>, <your categories> );
+
+See 'help segmentation_ui' for explanation of the two parameters.
+The other scripts are helper functions for the GUI.
+Feel free to explore by typing 'help <function>'.
+
+
+== USER INTERFACE ==
+
+After starting the GUI (see above), it presents the first image
+in a pre-segmented version.
+Browse the image list with the "< prev"/"<< -10"/"+10 >>"/"next >" buttons.
+
+You can (de)select segments by just clicking them (selection accumulates)
+or using the "sel none"/"sel all"/"sel invert" buttons.
+
+Clicking "refine sel" refine the selected segments (up to four times)
+by applying the segmentation algorithm with lower thresholds,
+"merge sel" merges all selected segments into one segment.
+
+"polygon" allows you to create a new segment as an arbitrarily shaped polygon.
+"median filter" smoothens the segmentation (you will be asked to enter the kernel size).
+
+Finally, "label sel" lets you assign a label to the selected segment(s).
+You can also select a previously labeled segment by clicking its label in the list on the right side.
+
+Click on "save" to save this image's results:
+ - the segmentation mask will be saved as <imagename>.seg.gif
+ - the labels will be saved as <imagename>.label.mat
+
+
+== INPUT SPECIFICATIONS ==
+
+You may use any image format MATLAB and ImageMagick can handle.
+Define your categories by listing them in a raw text file.
+You can create a hierarchy by intending with spaces, so for example
+for a category file like this:
+
+animal
+ tiger
+ lion
+objects
+ man made object
+  desk
+  chair
+  computer
+
+a segment showing a 'desk' gets labeled as 'object\man made object\desk'.
+
+
+== OUTPUT SPECIFICATIONS ==
+
+Segmentation results are stored as files named  <original image name>.seg.gif.
+Each color in the GIF image denotes a segment.
+(The actual color is meaningless, so we better refer to them as 'tokens').
+
+Segmentation labels are stored in <original image name>.label.mat,
+containing a matlab struct. If you load that struct and diplay it,
+you will see something like this:
+
+labels =
+1x2 struct array with fields:
+    segmenttoken
+    label
+
+labels(1) =
+ segmenttoken: 0
+        label: 'animal\tiger'
+
+...where the '0' refers to the token in the GIF image denoting the
+area of the 'tiger'.
+
+Files with extension .ppm are preprocessing results.
+They may safely be deleted after work has been concluded.
